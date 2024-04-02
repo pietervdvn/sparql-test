@@ -38,6 +38,16 @@ const queryWithShape = `
                 ]
             }`
 
+const queryWithOnlyShape = `
+        ?section a <http://schema.mobivoc.org/BicycleParkingStation>.
+            OPTIONAL {
+                ?x schema:geo [
+                a schema:GeoShape ;
+                schema:polygon ?shape
+                ]
+            }`
+
+
 const queryWithoutShape = `
         ?section a <http://schema.mobivoc.org/BicycleParkingStation>.
             OPTIONAL {
@@ -57,7 +67,8 @@ let sources = ["NoShapeFlat.jsonld"]
 let queries: Record<string, string>  = {
     withShape: queryWithShape,
     withoutShape: queryWithoutShape,
-    noCoords: queryWithoutCoords
+    noCoords: queryWithoutCoords,
+    onlyShape: queryWithOnlyShape
 }
 async function main() {
     const comunica = new QueryEngine()
