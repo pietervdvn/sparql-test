@@ -73,7 +73,7 @@ async function main() {
             )
             const bindings = await bindingsStream.toArray()
             console.log("Got "+bindings.length+" bindings for "+url+" with query "+queryName+":")
-            // console.log(bindings.map(b => b.toString()).join(","))
+            console.log(bindings.map(b => b.toString()).join(","))
         }
     }
 
